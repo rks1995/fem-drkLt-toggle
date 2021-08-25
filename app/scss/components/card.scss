@@ -1,0 +1,103 @@
+@use '../util/' as *;
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(30);
+  @include breakpoints(medium) {
+    justify-content: space-between;
+  }
+}
+.card {
+  background: var(--drk-des-blue-cardBG);
+  width: rem(222);
+  padding: rem(20);
+  text-align: center;
+  border-radius: rem(5);
+  &:hover {
+    cursor: pointer;
+    background: var(--hover-cardBG);
+  }
+  &__profile__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__username {
+    font-size: rem(10);
+    margin-left: rem(8);
+    color: var(--des-blue-text);
+  }
+  &__followers {
+    margin: rem(10) 0;
+    &--number {
+      font-size: rem(40);
+      margin-bottom: rem(-3);
+    }
+    &--text {
+      text-transform: uppercase;
+      letter-spacing: rem(3);
+      font-size: rem(10);
+      color: var(--dark-blue-text1);
+      font-weight: 700;
+    }
+  }
+  &__count {
+    &--green {
+      color: var(--lime-green);
+    }
+    &--red {
+      color: var(--bright-red);
+    }
+  }
+  &__facebook {
+    border-top: 3px solid var(--facebook);
+  }
+  &__twitter {
+    border-top: 3px solid var(--twitter);
+  }
+  &__instagram {
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      height: rem(3);
+      width: 100%;
+      background: linear-gradient(
+        to right,
+        var(--instagram-start),
+        var(--instagram-end)
+      );
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__youtube {
+    border-top: 3px solid var(--youtube);
+  }
+
+  //overview section
+  &-overview,
+  &-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-overview {
+    margin-bottom: rem(25);
+  }
+  &-status {
+    font-size: rem(10);
+    font-weight: 700;
+    color: var(--des-blue-text);
+  }
+  &-num {
+    font-size: rem(30);
+  }
+  &-percentage {
+    font-size: rem(10);
+    margin-left: rem(5);
+  }
+}

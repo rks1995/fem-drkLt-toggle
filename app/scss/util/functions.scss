@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+//src: https://css-tricks.com/snippets/sass/px-to-em-functions/
+
+$base-size: 16; // Default
+
+@function rem($pixels, $context: $base-size) {
+  @return (math.div($pixels, $context)) * 1em;
+}

@@ -1,0 +1,82 @@
+@use '../util/' as *;
+@use '../globals/' as *;
+
+.toggle {
+  border: none;
+  &__wrapper {
+    display: inline-block;
+    height: rem(24);
+    position: relative;
+    width: 70px;
+    text-align: center;
+  }
+  input[type='radio'] {
+    opacity: 0;
+    margin: 0;
+    &[type='system'] {
+      margin: 0 5px;
+    }
+  }
+  &__background {
+    display: block;
+    height: 100%;
+    border-radius: rem(12);
+    margin-top: -25px;
+    background: linear-gradient(
+      to right,
+      var(--toggle-start),
+      var(--toggle-end)
+    );
+  }
+  &__button {
+    position: absolute;
+    top: rem(3);
+    left: rem(3);
+    width: rem(18);
+    height: rem(18);
+    border-radius: 50%;
+    background-color: var(--drk-des-blue-cardBG);
+    transition: all 0.2s ease-in-out;
+  }
+  //button transition
+  #light:checked ~ &__button {
+    left: calc(100% - 28px);
+    right: 0;
+  }
+  #system:checked ~ &__button {
+    left: 33%;
+  }
+  //background change on different toggle
+
+  #light:focus ~ &__button {
+    background: var(--white);
+  }
+  #dark:focus ~ &__background {
+    background: var(--dark-blue-text1);
+  }
+  #dark:focus ~ &__button {
+    background: var(--toggle);
+  }
+
+  label {
+    font-size: 0.7rem;
+    color: var(--toggle);
+    &[for='dark'] {
+      margin-right: rem(5);
+    }
+    &[for='light'] {
+      margin-left: rem(5);
+    }
+    &[for='system'] {
+      position: absolute;
+      top: rem(50);
+      left: rem(25);
+    }
+  }
+  @include breakpoints-down(medium) {
+    text-align: left;
+    border-top: 1px solid var(--dark-blue-text1);
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
