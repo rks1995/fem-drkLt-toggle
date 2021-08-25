@@ -3,7 +3,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: ce;
   gap: rem(30);
   @include breakpoints(medium) {
     justify-content: space-between;
@@ -32,7 +32,9 @@
   &__followers {
     margin: rem(10) 0;
     &--number {
+      display: block;
       font-size: rem(40);
+      font-weight: 700;
       margin-bottom: rem(-3);
     }
     &--text {
